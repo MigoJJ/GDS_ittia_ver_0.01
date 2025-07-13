@@ -7,7 +7,7 @@ repositories {
 }
 
 val javaFxVersion = "21.0.1"
-val platform = "linux" // your OS: "win", "mac", "linux"
+val platform = "linux" // adjust for your OS
 
 dependencies {
     implementation("org.openjfx:javafx-base:$javaFxVersion:$platform")
@@ -28,18 +28,21 @@ application {
     mainClass.set("com.ittia.gds.GDSittiaEntry")
 }
 
-// ✅ compileJava에도 JavaFX 모듈 경로 전달
+val javaFxModules = listOf("javafx.controls", "javafx.fxml")
+val javafxLibs = configurations.runtimeClasspath.get()
+    .filter { it.name.contains("javafx") }
+    .joinToString(File.pathSeparator) { it.absolutePath }
+
 tasks.named<JavaCompile>("compileJava") {
     options.compilerArgs = listOf(
-        "--module-path", classpath.asPath,
-        "--add-modules", "javafx.controls,javafx.fxml"
+        "--module-path", javafxLibs,
+        "--add-modules", javaFxModules.joinToString(",")
     )
 }
 
-// ✅ run 시에도 JVM에 JavaFX 모듈 전달
 tasks.named<JavaExec>("run") {
     jvmArgs = listOf(
-        "--module-path", classpath.asPath,
-        "--add-modules", "javafx.controls,javafx.fxml"
+        "--module-path", javafxLibs,
+        "--add-modules", javaFxModules.joinToString(",")
     )
 }
