@@ -21,5 +21,5 @@ dependencies {
 }
 
 application {
-    mainClass.set("com.ittia.gds.App")
+    mainClass.set("com.ittia.gds.GDSittiaEntry")
 }
