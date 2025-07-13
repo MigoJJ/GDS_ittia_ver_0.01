@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.ittia.gds.ui.GDSEMRFrame;
+
 public class GDSittiaEntry extends Application {
 
     private static final String[] BUTTON_NAMES = {
@@ -53,6 +55,7 @@ public class GDSittiaEntry extends Application {
                 break;
             case "Ittia Start":
                 System.out.println("Launching ITTIA...");
+                GDSEMRFrame.main(null);
                 break;
             case "Rescue":
                 System.out.println("Rescue action triggered.");
