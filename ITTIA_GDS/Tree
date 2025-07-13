@@ -1,0 +1,33 @@
+GDSittia/
+├── build.gradle.kts
+├── settings.gradle.kts
+├── src/
+│   └── main/
+│       ├── java/com/ittia/gds/
+│       │   ├── GDSittiaEntry.java              # ← 최종 Entry Point (추가 예정)
+│       │   ├── ui/
+│       │   │   └── GDSEMRFrame.java            # ← je.pense.doro.GDSEMR_frame
+│       │   ├── controller/
+│       │   │   └── (필요시 UI 핸들러 클래스 분리)
+│       │   ├── service/
+│       │   │   ├── FileCopyService.java
+│       │   │   ├── ClipboardService.java
+│       │   │   ├── OneNoteService.java
+│       │   │   └── (기타 filecontrol 내 로직)
+│       │   ├── util/
+│       │   │   ├── StringArrowConverter.java
+│       │   │   ├── StringConvertToArray.java
+│       │   │   └── DateUtil.java
+│       │   └── model/
+│       │       └── (추후 DTO 정의 필요시)
+│       │
+│       └── resources/
+│           ├── db/
+│           │   ├── icd11.db
+│           │   ├── kcd8db.db
+│           │   ├── LabCodeFullDis.db
+│           │   ├── AbbFullDis.db
+│           ├── docx/
+│           │   └── (문서 템플릿 분리 가능)
+│           └── images/
+│               └── (아이콘, 버튼 이미지 등)
